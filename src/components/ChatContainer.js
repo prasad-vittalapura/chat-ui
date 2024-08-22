@@ -15,7 +15,7 @@ function ChatContainer() {
       <div  class="rounded px-3 py-[9px]  flex items-center justify-start cursor-pointer text-white mt-5 mb-3">
                <img
               src="/logo.png"
-              alt="user"
+              alt="logo"
               className="ml-10 w-15 h-10 rounded object-cover"
             />
               </div>
