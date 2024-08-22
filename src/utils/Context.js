@@ -1,10 +1,7 @@
 import { createContext, useEffect, useRef, useState } from "react";
-import { sendMsgToAI } from "./OpenAi";
 export const ContextApp = createContext();
 
 const AppContext = ({ children }) => {
-  const [showSlide, setShowSlide] = useState(true);
-  const [Mobile, setMobile] = useState(false);
   const [chatValue, setChatValue] = useState("");
   const [message, setMessage] = useState([
   ]);
@@ -19,7 +16,6 @@ const AppContext = ({ children }) => {
     const text = chatValue;
     setChatValue("");
     setMessage([...message, { text, isBot: false }]);
-    // const res = await sendMsgToAI(text);
     const res = text
     setMessage([
       ...message,
@@ -34,32 +30,15 @@ const AppContext = ({ children }) => {
       handleSend();
     }
   };
-
-  // Query Click function
-  const handleQuery = async (e) => {
-    const text = e.target.innerText;
-    setMessage([...message, { text, isBot: false }]);
-    const res = await sendMsgToAI(text);
-    setMessage([
-      ...message,
-      { text, isBot: false },
-      { text: res, isBot: true },
-    ]);
-  };
   return (
     <ContextApp.Provider
       value={{
-        showSlide,
-        setShowSlide,
-        Mobile,
-        setMobile,
         chatValue,
         setChatValue,
         handleSend,
         message,
         msgEnd,
         handleKeyPress,
-        handleQuery,
       }}
     >
       {children}
