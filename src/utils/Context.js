@@ -5,6 +5,7 @@ const AppContext = ({ children }) => {
   const [chatValue, setChatValue] = useState("");
   const [message, setMessage] = useState([
   ]);
+  const [initPage, setInitPage] = useState(true);
   const msgEnd = useRef(null);
 
   useEffect(() => {
@@ -13,6 +14,7 @@ const AppContext = ({ children }) => {
 
   // button Click function
   const handleSend = async () => {
+    setInitPage(false)
     const text = chatValue;
     setChatValue("");
     setMessage([...message, { text, isBot: false }]);
@@ -39,6 +41,8 @@ const AppContext = ({ children }) => {
         message,
         msgEnd,
         handleKeyPress,
+        initPage,
+        setInitPage
       }}
     >
       {children}

@@ -2,10 +2,25 @@ import React, { useContext } from "react";
 import { ContextApp } from "../utils/Context";
 
 function Chat() {
-  const { message, msgEnd } = useContext(ContextApp);
+  const { message, msgEnd,initPage,setInitPage } = useContext(ContextApp);
   return (
     <div className=" w-full h-[85%] flex items-center justify-center overflow-hidden overflow-y-auto px-2 py-1 scroll">
       <div className="w-full lg:w-4/5 flex flex-col h-full items-start justify-start">
+     {initPage &&  <div className="flex w-full item-start justify-center">
+        <div className="flex flex-col item-start justify-center w-2/4">
+          <span className="flex flex-start justify-start gap-2 lg:gap-5 my-2 p-3 rounded-md">
+            <img src={"/icon.png"}
+            alt="user"
+            className="w-20 h-20 rounded object-cover"/>
+            <label class="text-white font-bold md:text-right mb-1 md:mb-0 pr-4 text-5xl" for="inline-full-name">
+              LogiGen
+            </label>
+          </span>
+          <p className="block text-gray-500 font-bold text-2xl">One Click to tern Complex Logs into Meaningful Insights with our AI-powered Analyser</p>
+        </div>
+
+      </div>}
+     
         {message?.map((msg, i) => (
           <div className="w-full">
             <span
