@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { ContextApp } from "../utils/Context";
+import { ReactTyped ,Typed  } from "react-typed";
 
 function Chat() {
   const { message, msgEnd,initPage,setInitPage } = useContext(ContextApp);
@@ -12,8 +13,8 @@ function Chat() {
             <img src={"bot.gif"}
             alt="user"
             className="w-20 h-20 rounded object-cover"/>
-            <label class="text-slate-600 font-bold md:text-right mb-1 md:mb-0 pr-4 text-5xl" for="inline-full-name">
-              LogiGen
+            <label class="text-slate-600 font-bold  mb-1 md:mb-0 pr-4 text-4xl" for="inline-full-name">
+              LogiGen Co-Pilot
             </label>
           </span>
           <p className="block text-gray-300 font-bold text-2xl">One Click to Transform Complex Logs into Clear Insights with AI</p>
@@ -36,7 +37,13 @@ function Chat() {
               alt="user"
               className="w-10 h-10 rounded object-cover"
             />
-            <p className="text-inherit text-[15px]">{msg?.text}</p>
+           
+            {/* {message.length-1==i &&  <p className="text-inherit text-[15px]">
+              <ReactTyped strings={[msg?.text]} typeSpeed={2}  backSpeed={2} showCursor={false} loop={false}/> </p>} */}
+            {message.length >i && 
+            <p className="text-inherit text-[15px]">
+              {msg?.text}
+              </p>}
           </span>
           </div>
           
